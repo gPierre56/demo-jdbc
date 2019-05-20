@@ -15,8 +15,8 @@ public class TestConnexionJdbc {
 	private static final Logger LOGGER = LoggerFactory.getLogger(TestConnexionJdbc.class);
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		// récupération des infos du fichier properties
 		ResourceBundle dbProperties = ResourceBundle.getBundle("db");
 		String driverName = dbProperties.getString("database.driver");
 		String url = dbProperties.getString("database.url");
@@ -26,7 +26,6 @@ public class TestConnexionJdbc {
 		try {
 			Class.forName(driverName);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -80,7 +79,7 @@ public class TestConnexionJdbc {
 			statement5.close();
 
 		} catch (SQLException e) {
-			LOGGER.error("Erreur SQL");
+			LOGGER.error("Une exception SQL s'est produite", e);
 		} finally {
 
 			try {
@@ -89,7 +88,7 @@ public class TestConnexionJdbc {
 				}
 
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 		}
