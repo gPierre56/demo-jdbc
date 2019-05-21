@@ -26,7 +26,7 @@ public class TestConnexionJdbc {
 		try {
 			Class.forName(driverName);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			LOGGER.error("Le driver n'a pas été trouvé", e);
 		}
 
 		Connection connection = null;
@@ -89,7 +89,7 @@ public class TestConnexionJdbc {
 
 			} catch (SQLException e) {
 
-				e.printStackTrace();
+				LOGGER.error("Problème lors de la fermeture de la connexion", e);
 			}
 		}
 
